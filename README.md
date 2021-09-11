@@ -83,7 +83,7 @@ Once a poster is fetched from OMDB , poster is saved to DB to reduce duplicate r
 </details>
 
 <details>
-  <summary><b>Deploy in your VPS</b></summary>
+  <summary><b>Hard Way</b></summary>
 <br/>
 
 ```bash
