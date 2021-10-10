@@ -17,7 +17,7 @@ import logging
 from pyrogram import Client, emoji, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultCachedDocument
 
-from utils import get_search_results, is_subscribed
+from utils import get_search_results, is_subscribed, get_size
 from info import CACHE_TIME, AUTH_USERS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
 
 logger = logging.getLogger(__name__)
@@ -53,7 +53,7 @@ async def answer(bot, query):
 
     for file in files:
         title=file.file_name
-        size=file.file_size
+        size=get_size(file.file_size)
         f_caption=file.caption
         if CUSTOM_FILE_CAPTION:
             try:
@@ -99,20 +99,7 @@ def get_reply_markup(query):
     buttons = [
         [
             InlineKeyboardButton('Search again', switch_inline_query_current_chat=query),
-            InlineKeyboardButton('Other Bots', url='https://t.me/BotzList/37')
+            InlineKeyboardButton('Other Bots', url='https://t.me/BotzListBot')
         ]
         ]
     return InlineKeyboardMarkup(buttons)
-
-
-def get_size(size):
-    """Get size in readable format"""
-
-    units = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB"]
-    size = float(size)
-    i = 0
-    while size >= 1024.0 and i < len(units):
-        i += 1
-        size /= 1024.0
-    return "%.2f %s" % (size, units[i])
-
