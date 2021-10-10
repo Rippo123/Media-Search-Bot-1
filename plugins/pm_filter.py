@@ -300,7 +300,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             filedetails = await get_file_details(file_id)
             for files in filedetails:
                 title = files.file_name
-                size=files.file_size
+                size=get_size(files.file_size)
                 f_caption=files.caption
                 if CUSTOM_FILE_CAPTION:
                     try:
@@ -312,7 +312,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('More Bots', url='https://t.me/BotzList/37'),
+                        InlineKeyboardButton('More Bots', url='https://t.me/BotzListBot'),
                         InlineKeyboardButton('Update Channel', url='https://t.me/tgbotsproject')
                     ]
                     ]
@@ -332,7 +332,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             filedetails = await get_file_details(file_id)
             for files in filedetails:
                 title = files.file_name
-                size=files.file_size
+                size=get_size(files.file_size)
                 f_caption=files.caption
                 if CUSTOM_FILE_CAPTION:
                     try:
@@ -344,7 +344,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     f_caption = f"{title}"
                 buttons = [
                     [
-                        InlineKeyboardButton('More Bots', url='https://t.me/BotzList/37'),
+                        InlineKeyboardButton('More Bots', url='https://t.me/BotzListBot'),
                         InlineKeyboardButton('Update Channel', url='https://t.me/tgbotsproject')
                     ]
                     ]
