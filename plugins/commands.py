@@ -18,7 +18,7 @@ import logging
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from info import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
-from utils import Media, get_file_details
+from utils import Media, get_file_details, get_size
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
 
@@ -69,7 +69,7 @@ async def start(bot, cmd):
             filedetails = await get_file_details(file_id)
             for files in filedetails:
                 title = files.file_name
-                size=files.file_size
+                size=get_size(files.file_size)
                 f_caption=files.caption
                 if CUSTOM_FILE_CAPTION:
                     try:
