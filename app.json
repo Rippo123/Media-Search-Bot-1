@@ -15,7 +15,7 @@
       "inline"
     ],
     "website": "https://github.com/ZauteKm/Media-Search-Bot",
-    "repository": "https://github.com/ZauteKm/Media-Search-Bot",
+    "repository": "https://github.com/Rippo123/Media-Search-Bot",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
